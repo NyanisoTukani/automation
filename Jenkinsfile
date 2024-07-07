@@ -1,23 +1,22 @@
 pipeline {
     agent any
 
-    tools {
-        maven 'maven'  // Ensure 'maven' is the name of the Maven installation in Jenkins
-    }
-
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/NyanisoTukani/automation'
+                // Checkout code from the repository
+                git branch: 'main', url: 'https://github.com/NyanisoTukani/automation'
             }
         }
         stage('Build') {
             steps {
+                // Example build step (adjust as per your project)
                 sh 'mvn clean install'
             }
         }
         stage('Test') {
             steps {
+                // Example test step (adjust as per your project)
                 sh 'mvn test'
             }
         }
